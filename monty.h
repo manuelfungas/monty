@@ -43,4 +43,6 @@ typedef struct instruction_s
 extern FILE *file;
 FILE *file;
 
+void process_line(char *line, unsigned int *line_number, stack_t **stack, instruction_t *cmd);
+void read_instructions(stack_t **stack, instruction_t *cmd)
 #endif /* MONTY_H */
