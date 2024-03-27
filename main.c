@@ -15,6 +15,15 @@ int main(int argc, char *argv[])
 	if (file == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
 
+	stack_t *top = NULL;
+	instruction_t cmd[] = {
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
+	};
 
-	return (0);
+	read_instructions(&stack, cmd);
+	fclose(file);
+
+	return (EXIT_SUCCESS);
 }
