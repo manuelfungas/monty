@@ -61,10 +61,7 @@ pall
 - **push \<value\>**: Pushes an integer onto the stack.
 - **pop**: Removes the top element from the stack.
 - **add**: Adds the top two elements of the stack.
-- **sub**: Subtracts the top element of the stack from the second top element.
-- **mul**: Multiplies the top two elements of the stack.
-- **div**: Divides the second top element of the stack by the top element.
-- **mod**: Computes the modulo of the second top element of the stack divided by the top element.
+- **sub**: Subtracts the top element of the stack from the second top elem
 - **pall**: Prints all the values on the stack, starting from the top.
 
 ## Error Handling
