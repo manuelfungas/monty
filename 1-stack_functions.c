@@ -5,17 +5,16 @@
  * @stack: Pointer to the stack
  * @line_number: Line number being executed
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *current = *stack;
 
-	while (current)
+	while (current != NULL)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
 	}
 
-	(void)line_number;
 }
 
 /**
@@ -43,9 +42,9 @@ void swap(stack_t **stack, unsigned int line_number)
  * @stack: Pointer to the stack
  * @line_number: Line number being executed
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(__attribute__((unused))stack_t **stack,
+		__attribute__((unused))unsigned int line_number)
 {
-	(void)stack;
-	(void)line_number;
+
 }
 
