@@ -43,6 +43,19 @@ typedef struct instruction_s
 extern FILE *file;
 FILE *file;
 
-void process_line(char *line, unsigned int *line_number, stack_t **stack, instruction_t *cmd);
-void read_instructions(stack_t **stack, instruction_t *cmd)
+typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
+void read_file(char *filename, stack_t **stack);
+char *parse_line(char *line);
+instruct_func get_op_function(char *str);
+int is_digit(int c);
+
+void push(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+
+void free_dlistint(stack_t *head);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 #endif /* MONTY_H */
