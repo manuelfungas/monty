@@ -1,6 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
-
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,7 +8,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/stat.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,7 +42,6 @@ typedef struct instruction_s
 
 
 extern FILE *file;
-FILE *file;
 
 typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
 void read_file(char *filename, stack_t **stack);

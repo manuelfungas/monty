@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * is_digit - Check for a digit (0-9)
  * @c: Integer holding the character

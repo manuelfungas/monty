@@ -7,7 +7,9 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	int value;
 	char *token = strtok(NULL, " \n");
+	stack_t *new_node;
 
 	if (!token || !is_digit(*token))
 	{
@@ -15,9 +17,8 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	int value = atoi(token);
-
-	stack_t *new_node = malloc(sizeof(stack_t));
+	value = atoi(token);
+	new_node = malloc(sizeof(stack_t));
 
 	if (!new_node)
 	{
@@ -41,13 +42,15 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *top;
+
 	if (!*stack)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	stack_t *top = *stack;
+	top = *stack;
 	*stack = (*stack)->next;
 	free(top);
 }
@@ -58,14 +61,15 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 void add(stack_t **stack, unsigned int line_number)
 {
+	int sum;
+
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	int sum = (*stack)->n + (*stack)->next->n;
-
+	sum = (*stack)->n + (*stack)->next->n;
 	pop(stack, line_number);
 	(*stack)->n = sum;
 }

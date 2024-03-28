@@ -11,15 +11,16 @@ void read_file(char *filename, stack_t **stack)
 	size_t len = 0;
 	ssize_t read;
 
-	file = fopen(filename, "r");
+	FILE *file = fopen(filename, "r");
 
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
-
-	while ((read = getline(&line, &len, file)) != -1)
+	
+	read = getline(&line, &len, file); 
+	while (read != -1)
 	{
 		char *opcode = parse_line(line);
 
