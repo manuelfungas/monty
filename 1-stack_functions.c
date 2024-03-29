@@ -42,9 +42,9 @@ void swap(stack_t **stack, unsigned int line_number)
  * @stack: Pointer to the stack
  * @line_number: Line number being executed
  */
-void nop(__attribute__((unused))stack_t **stack,
-		__attribute__((unused))unsigned int line_number)
+void nop(stack_t **stack, unsigned int line_number)
 {
-	;
+	(void) stack;
+	(void) line_numbe;
 }
 
